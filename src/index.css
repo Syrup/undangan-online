@@ -1,0 +1,225 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "elegant";
+  default: true,
+  prefersdark: false;
+  color-scheme: light;
+  --color-base-100: var(--elegant-white);
+  --color-base-content: var(--elegant-black);
+  --color-primary: var(--elegant-gold);
+  --color-primary-content: var(--elegant-off-white);
+  --color-secondary: var(--elegant-charcoal);
+  --color-secondary-content: var(--elegant-light-silver);
+  --color-accent: var(--elegant-black);
+  --color-accent-content: var(--elegant-off-white);
+  --color-neutral: var(--elegant-charcoal);
+  --color-neutral-content: var(--elegant-light-silver);
+  --color-info: var(--elegant-silver);
+  --color-success: var(--elegant-gold);
+  --color-warning: var(--elegant-light-gold);
+  --color-error: #8b4513; /* Saddle Brown */
+  --color-error-content: var(--elegant-off-white);
+  --color-info-content: var(--elegant-off-white);
+  --color-success-content: var(--elegant-off-white);
+  --color-warning-content: var(--elegant-black);
+  --color-base-200: var(--elegant-off-white);
+  --color-base-300: var(--elegant-light-silver);
+  --color-base-content: var(--elegant-black);
+}
+
+/* Smooth fixeding behavior */
+html {
+  fixed-behavior: smooth;
+}
+
+/* Custom elegant theme variables */
+:root {
+  --elegant-black: #1a1a1a;
+  --elegant-charcoal: #2d2d2d;
+  --elegant-silver: #c0c0c0;
+  --elegant-light-silver: #e8e8e8;
+  --elegant-gold: #d4af37;
+  --elegant-light-gold: #f4e4a6;
+  --elegant-white: #fafafa;
+  --elegant-off-white: #f5f5f5;
+}
+
+/* Force elegant theme styles */
+[data-theme="elegant"] {
+  --fallback-p: #d4af37;
+  --fallback-pc: #fafafa;
+  --fallback-s: #c0c0c0;
+  --fallback-sc: #1a1a1a;
+  --fallback-a: #1a1a1a;
+  --fallback-ac: #fafafa;
+  --fallback-n: #2d2d2d;
+  --fallback-nc: #fafafa;
+  --fallback-b1: #fafafa;
+  --fallback-b2: #f5f5f5;
+  --fallback-b3: #e8e8e8;
+  --fallback-bc: #1a1a1a;
+}
+
+/* Floating buttons positioning - Simple and reliable */
+.floating-buttons {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+}
+
+/* Force positioning on mobile */
+@media (max-width: 640px) {
+  .floating-buttons {
+    right: 1.5rem !important;
+  }
+}
+
+/* Desktop positioning within container bounds */
+@media (min-width: 641px) {
+  .floating-buttons {
+    right: 1.5rem;
+  }
+  
+  /* Only adjust if container is centered and viewport is wide enough */
+  @media (min-width: 768px) {
+    .floating-buttons {
+      right: calc((100vw - 384px) / 2 + 1.5rem);
+    }
+  }
+}
+
+/* Responsive viewport behavior */
+@media (max-width: 640px) {
+  /* Mobile: Full width */
+  .wedding-container {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* Background image optimization - Container adapts to image size */
+.wedding-container {
+  background-color: #000000 !important;
+  background-size: contain !important;
+  background-position: center center !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+  min-height: 100vh !important;
+  width: 100vw !important;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Desktop: Container matches image aspect ratio */
+@media (min-width: 641px) {
+  .wedding-container {
+    width: 100vw;
+    max-width: none;
+    margin: 0;
+    background-color: #000000 !important;
+    background-size: contain !important;
+    background-position: center center !important;
+  }
+  
+  /* Create a pseudo-element to maintain aspect ratio based on image */
+  .wedding-container::before {
+    content: '';
+    display: block;
+    width: 100%;
+    padding-top: 177.78%; /* 16:9 aspect ratio, adjust based on your image */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+}
+
+/* Mobile: Full viewport containage */
+@media (max-width: 640px) {
+  .wedding-container {
+    width: 100vw !important;
+    min-height: 100vh !important;
+    background-color: #000000 !important;
+    background-size: contain !important;
+    background-position: center center !important;
+    background-attachment: fixed !important;
+  }
+}
+
+/* Portrait orientation: Optimize for vertical images */
+@media (orientation: portrait) {
+  .wedding-container {
+    background-color: #000000 !important;
+    background-size: contain !important;
+    background-position: center top !important;
+  }
+  
+  .wedding-container::before {
+    padding-top: 150%; /* Adjust for portrait aspect ratio */
+  }
+}
+
+/* Landscape orientation: Optimize for horizontal images */
+@media (orientation: landscape) {
+  .wedding-container {
+    background-color: #000000 !important;
+    background-size: contain !important;
+    background-position: center center !important;
+  }
+  
+  .wedding-container::before {
+    padding-top: 56.25%; /* 16:9 aspect ratio for landscape */
+  }
+}
+
+/* Responsive container width based on viewport */
+@media (min-width: 1024px) {
+  .wedding-container {
+    max-width: 100vw;
+    width: 100vw;
+  }
+}
+
+/* Ensure content doesn't overflow */
+.wedding-container > * {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Center content on larger screens */
+@media (min-width: 768px) {
+  .wedding-container > section {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Keyframes */
+@keyframes slide {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 256px 224px;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion) {
+  *,
+  ::before,
+  ::after {
+    animation: none !important;
+  }
+}

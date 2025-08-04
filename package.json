@@ -1,0 +1,34 @@
+{
+  "name": "bun-react-template",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.tsx",
+  "module": "src/index.tsx",
+  "scripts": {
+    "dev": "bun --hot src/index.tsx",
+    "start": "NODE_ENV=production bun src/index.tsx",
+    "build": "bun run build.ts",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.1",
+    "@tailwindcss/cli": "^4.1.11",
+    "bun-plugin-tailwind": "^0.0.14",
+    "daisyui": "^5.0.50",
+    "drizzle-orm": "^0.44.3",
+    "motion": "^12.23.3",
+    "postgres": "^3.4.7",
+    "react": "^19",
+    "react-dom": "^19",
+    "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "drizzle-kit": "^0.31.4"
+  }
+}

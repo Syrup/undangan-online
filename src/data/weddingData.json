@@ -1,0 +1,104 @@
+{
+  "emojis": {
+    "heart": "❤️",
+    "wedding": "💍",
+    "love": "💕",
+    "sad": "💔",
+    "happy": "💖",
+    "music_play": "🎶",
+    "music_stop": "🎵",
+    "share": "📤"
+  },
+  "couple": {
+    "groom": {
+      "name": "Bagas Rizky Syahputra",
+      "parents": "Bapak Kristiantono & Ibu Darwiyati",
+      "photo": "https://picsum.photos/200/200?random=1"
+    },
+    "bride": {
+      "name": "Melani Ayu Wulandari",
+      "parents": "Bapak Teguh & Ibu Lestari (Almh)",
+      "photo": "https://picsum.photos/200/200?random=2"
+    }
+  },
+  "hero": {
+    "title": "Wedding Invitation",
+    "coupleNames": "Bagas & Melani",
+    "date": "Senin, 11 Agustus 2025",
+    "time": "09.00 WIB"
+  },
+  "events": [
+    {
+      "type": "Akad Nikah",
+      "date": "Senin, 11 Agustus 2025",
+      "time": "09.00",
+      "venue": "Kantor KUA Ngaliyan",
+      "address": "Jl. Raya Ngaliyan, Ngaliyan, Semarang"
+    },
+    {
+      "type": "Resepsi",
+      "date": "Senin, 11 Agustus 2025",
+      "time": "12.00 WIB",
+      "venue": "Kediaman Mempelai Wanita",
+      "address": "Jl. Duwet Lawas Rt. 08, Rw. 04"
+    }
+  ],
+  "story": [
+    {
+      "icon": "💕",
+      "title": "Awal Bertemu",
+      "date": "Januari 2020",
+      "description": "Pertemuan pertama yang tak terduga di kampus saat acara orientasi mahasiswa baru. Mata bertemu mata, dan saat itu juga ada rasa istimewa yang mulai tumbuh.",
+      "color": "from-pink-200 to-rose-200"
+    },
+    {
+      "icon": "💔",
+      "title": "Masa Sulit",
+      "date": "Maret 2022",
+      "description": "Jarak dan kesibukan kuliah membuat hubungan kami mengalami masa sulit. Kami memutuskan untuk fokus pada diri masing-masing terlebih dahulu.",
+      "color": "from-gray-200 to-slate-200"
+    },
+    {
+      "icon": "💖",
+      "title": "Balikan",
+      "date": "Agustus 2023",
+      "description": "Setelah menjadi pribadi yang lebih baik, takdir mempertemukan kami kembali. Kali ini dengan komitmen yang lebih kuat dan cinta yang lebih matang.",
+      "color": "from-purple-200 to-pink-200"
+    },
+    {
+      "icon": "💍",
+      "title": "Menikah",
+      "date": "Agustus 2025",
+      "description": "Hari yang telah lama kami nantikan akhirnya tiba. Dengan restu kedua orang tua dan doa dari semua orang terkasih, kami siap memulai hidup baru bersama.",
+      "color": "from-yellow-200 to-orange-200"
+    }
+  ],
+  "gallery": [
+    "https://picsum.photos/400/400?random=3",
+    "https://picsum.photos/400/400?random=4",
+    "https://picsum.photos/400/400?random=5",
+    "https://picsum.photos/400/400?random=6",
+    "https://picsum.photos/400/400?random=7",
+    "https://picsum.photos/400/400?random=8"
+  ],
+  "countdown": {
+    "weddingDate": "2025-08-11T09:00:00"
+  },
+  "quote": {
+    "text": "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang.",
+    "source": "QS. Ar-Rum: 21"
+  },
+  "footer": {
+    "thankYouMessage": "Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai.",
+    "signature": "Bagas & Melani",
+    "madeWithLove": "❤️ Made with Love ❤️"
+  },
+  "maps": {
+    "url": "https://maps.app.goo.gl/DpLU1Hi7NsqYU1af7"
+  },
+  "sharing": {
+    "title": "Undangan Pernikahan Bagas & Melani",
+    "text": "Anda diundang ke pernikahan Bagas & Melani",
+    "copyMessage": "Link undangan telah disalin!"
+  }
+}
