@@ -91,7 +91,7 @@ export function generateDynamicMeta() {
   const utm_source = urlParams.get('utm_source');
   const utm_medium = urlParams.get('utm_medium');
   
-  let customImage = '/api/files/first.jpg';
+  let customImage = '/first.jpg';
   let customDescription = weddingData.hero.title;
   
   // Customize based on traffic source
@@ -158,7 +158,7 @@ export function WeddingSchema() {
       }
     ],
     "image": [
-      `${window.location.origin}/api/files/first.jpg`
+      `${window.location.origin}/first.jpg`
     ],
     "url": window.location.href
   };

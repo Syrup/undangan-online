@@ -1,24 +1,5 @@
 import { motion, useInView, AnimatePresence } from "motion/react";
 import { useState, useRef, useEffect } from "react";
-// import satu from "../data/1.jpg";
-// import dua from "../data/2.jpg";
-// import tiga from "../data/3.jpg";
-// import empat from "../data/4.jpg";
-// import lima from "../data/5.jpg";
-// import enam from "../data/6.jpg";
-// import tujuh from "../data/7.jpg";
-// import delapan from "../data/8.jpg";
-// import sembilan from "../data/9.jpg";
-// import sepuluh from "../data/10.jpg";
-// import sebelas from "../data/11.jpg";
-// import duabelas from "../data/12.jpg";
-// import tigabelas from "../data/13.jpg";
-// import empatbelas from "../data/14.jpg";
-// import limabelas from "../data/15.jpg";
-// import enambelas from "../data/16.jpg";
-// import tujuhbelas from "../data/17.jpg";
-// import delapanbelas from "../data/18.jpg";
-// import weddingData from "../data/weddingData.json";
 
 function useScrollAnimation() {
   const ref = useRef(null);
@@ -27,9 +8,9 @@ function useScrollAnimation() {
   return { ref, isInView };
 }
 
-// Generate array of image paths from 1.jpg to 18.jpg
+// Generate array of image paths from 1.jpg to 14.jpg
 const generateGalleryImages = () => {
-  return Array.from({ length: 18 }, (_, index) => `/api/files/${index + 1}.jpg`);
+  return Array.from({ length: 14 }, (_, index) => `/${index + 1}.jpg`);
 };
 
 // const galleryImages = [

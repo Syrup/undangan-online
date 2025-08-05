@@ -18,6 +18,119 @@ function useScrollAnimation() {
   return { ref, isInView };
 }
 
+function DonationSection() {
+  const { ref, isInView } = useScrollAnimation();
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  return (
+    <section ref={ref} className="py-16 px-4 sm:px-8 lg:px-16 relative z-10">
+      <div className="max-w-md lg:max-w-4xl mx-auto">
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-3xl font-serif text-white mb-4 drop-shadow-lg">💰 Amplop Digital</h2>
+          <div className="divider divider-white w-24 mx-auto"></div>
+          <p className="text-white">
+            Doa restu Anda adalah hadiah yang sangat berharga bagi kami. Namun jika ingin memberikan hadiah, 
+            Anda dapat mengirimkannya melalui:
+          </p>
+        </motion.div>
+
+        <motion.div
+          className="card bg-white/20 backdrop-blur-sm shadow-lg border border-white/30"
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.3, duration: 0.8 }}
+        >
+          <div className="card-body text-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="space-y-6"
+            >
+              {/* Bank Logo */}
+              <div className="flex justify-center">
+                <div className="bg-blue-600 text-white px-6 py-3 rounded-lg font-bold text-xl">
+                  BCA
+                </div>
+              </div>
+
+              {/* Account Details */}
+              <div className="space-y-4">
+                <div>
+                  <p className="text-sm text-white/70 mb-1">Nomor Rekening</p>
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="text-2xl font-mono font-bold text-white">1820693708</span>
+                    <motion.button
+                      className="btn btn-sm btn-ghost btn-circle text-white/80 hover:text-white text-lg"
+                      onClick={() => copyToClipboard('1820693708')}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      📋
+                    </motion.button>
+                  </div>
+                </div>
+
+                <div>
+                  <p className="text-sm text-white/70 mb-1">Atas Nama</p>
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="text-lg font-semibold text-white">Melani Ayu</span>
+                    <motion.button
+                      className="btn btn-sm btn-ghost btn-circle text-white/80 hover:text-white text-lg"
+                      onClick={() => copyToClipboard('Melani Ayu')}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      📋
+                    </motion.button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Copy Success Message */}
+              {copied && (
+                <motion.div
+                  className="alert alert-success"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                >
+                  <span>✅ Berhasil disalin!</span>
+                </motion.div>
+              )}
+
+              {/* Thank You Message */}
+              <motion.div
+                className="p-4 bg-white/10 rounded-lg border border-white/20"
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{ delay: 0.8, duration: 0.8 }}
+              >
+                <p className="text-sm text-white/90 italic">
+                  "Terima kasih atas kebaikan dan dukungan Anda. 
+                  Semoga Allah SWT membalas kebaikan Anda dengan berlipat ganda."
+                </p>
+              </motion.div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function HeroSection({ isPlaying, toggleMusic, isAudioLoading, guestName }: { isPlaying: boolean; toggleMusic: () => void; isAudioLoading: boolean; guestName?: string }) {
   const [buttonsVisible, setButtonsVisible] = useState(false);
 
@@ -137,7 +250,7 @@ function CoupleSection() {
             <div className="card-body text-center">
               <div className="avatar mb-4">
                 <div className="w-32 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                  <img src={weddingData.couple.groom.photo} alt="Mempelai Pria" />
+                  <img src="/bagas.jpg" alt="Mempelai Pria" />
                 </div>
               </div>
               <h3 className="card-title text-white justify-center">{weddingData.couple.groom.name}</h3>
@@ -164,7 +277,7 @@ function CoupleSection() {
             <div className="card-body text-center">
               <div className="avatar mb-4">
                 <div className="w-32 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                  <img src={weddingData.couple.bride.photo} alt="Mempelai Wanita" />
+                  <img src="/melani.jpg" alt="Mempelai Wanita" />
                 </div>
               </div>
               <h3 className="card-title text-white justify-center">{weddingData.couple.bride.name}</h3>
@@ -471,7 +584,7 @@ export function App() {
           className="min-h-screen w-full wedding-container font-elegant relative overflow-hidden"
           style={{
             backgroundColor: '#000000',
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/api/files/first.jpg)`
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/first.jpg)`
           }}
           data-theme="elegant"
           initial={{ opacity: 0 }}
@@ -479,7 +592,7 @@ export function App() {
           transition={{ duration: 1 }}
         >
           <audio ref={audioRef} preload="auto">
-            <source src="/api/files/music.mp3" type="audio/mpeg" />
+            <source src="/music.mp3" type="audio/mpeg" />
             Your browser does not support the audio element.
           </audio>
           <HeroSection 
@@ -494,6 +607,7 @@ export function App() {
           <EventSection />
           <StorySection />
           <GallerySection />
+          <DonationSection />
           <RSVPWishesSection />
           <FooterSection />
         </motion.div>

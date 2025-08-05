@@ -16,13 +16,13 @@ export function Preloader({ onLoadComplete }: PreloaderProps) {
   const [loadingText, setLoadingText] = useState("Memuat...");
   const [loadStatus, setLoadStatus] = useState<AssetLoadStatus>({
     backgroundImage: false,
-    galleryImages: Array(18).fill(false),
+    galleryImages: Array(14).fill(false),
     audio: false,
   });
 
   useEffect(() => {
     const loadAssets = async () => {
-      const totalAssets = 20; // 1 background + 18 gallery images + 1 audio
+      const totalAssets = 16; // 1 background + 14 gallery images + 1 audio
       let loadedAssets = 0;
 
       const updateProgress = (assetType: string, index?: number) => {
@@ -47,7 +47,7 @@ export function Preloader({ onLoadComplete }: PreloaderProps) {
         if (newProgress < 20) {
           setLoadingText("Memuat latar belakang...");
         } else if (newProgress < 90) {
-          setLoadingText(`Memuat galeri... (${loadedAssets - 1}/18)`);
+          setLoadingText(`Memuat galeri... (${loadedAssets - 1}/14)`);
         } else if (newProgress < 100) {
           setLoadingText("Memuat musik...");
         } else {
@@ -75,12 +75,12 @@ export function Preloader({ onLoadComplete }: PreloaderProps) {
             updateProgress('background');
             resolve();
           };
-          bgImage.src = "/api/files/first.jpg";
+          bgImage.src = "/first.jpg";
         })
       );
 
-      // Load gallery images (1-18)
-      for (let i = 1; i <= 18; i++) {
+      // Load gallery images (1-14)
+      for (let i = 1; i <= 14; i++) {
         const imageIndex = i - 1;
         assetPromises.push(
           new Promise<void>((resolve) => {
@@ -94,7 +94,7 @@ export function Preloader({ onLoadComplete }: PreloaderProps) {
               updateProgress('gallery', imageIndex);
               resolve();
             };
-            img.src = `/api/files/${i}.jpg`;
+            img.src = `/${i}.jpg`;
           })
         );
       }
@@ -116,7 +116,7 @@ export function Preloader({ onLoadComplete }: PreloaderProps) {
             updateProgress('audio');
             resolve();
           };
-          audio.src = "/api/files/music.mp3";
+          audio.src = "/music.mp3";
           audio.preload = "auto";
           audio.load();
         })

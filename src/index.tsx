@@ -3,9 +3,15 @@ import index from "./index.html";
 import { serverApi } from "./lib/api";
 
 const server = serve({
+  fetch(req) {
+    const url = new URL(req.url).pathname;
+    const file = Bun.file(`./public/${url}`);
+
+    return new Response(file);
+  },
   routes: {
     // Serve index.html for all unmatched routes.
-    "/*": index,
+    "/": index,
 
     // RSVP API endpoints
     "/api/rsvp": {
