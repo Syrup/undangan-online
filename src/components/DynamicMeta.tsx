@@ -87,7 +87,7 @@ function updateMetaTag(attribute: string, value: string, content: string) {
 // Function to generate dynamic meta tags based on URL parameters
 export function generateDynamicMeta() {
   const urlParams = new URLSearchParams(window.location.search);
-  const guestName = urlParams.get('to') || urlParams.get('guest');
+  const guestName = urlParams.get('to') || urlParams.get('guest') || urlParams.get('penerima');
   const utm_source = urlParams.get('utm_source');
   const utm_medium = urlParams.get('utm_medium');
   

@@ -178,9 +178,32 @@ function HeroSection({ isPlaying, toggleMusic, isAudioLoading, guestName }: { is
         >
           {isAudioLoading ? "⏳" : (isPlaying ? "🎵" : "🎶")}
         </motion.button>
+
+        {/* Recipient Name Box */}
+        {guestName && (
+          <motion.div
+            className="card bg-white/20 backdrop-blur-sm shadow-lg border border-white/30 mb-6 max-w-sm mx-auto"
+            initial={{ opacity: 0, scale: 0.8, y: -20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          >
+            <div className="card-body py-4 px-6">
+              <motion.div
+                className="text-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6, duration: 0.8 }}
+              >
+                <p className="text-sm text-white/80 mb-1">Kepada Yth.</p>
+                <h3 className="text-lg font-semibold text-white mb-1">{guestName}</h3>
+                <p className="text-xs text-white/70">Di tempat</p>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
         
         <h1 className="text-4xl md:text-6xl font-serif text-white mb-4 tracking-wide drop-shadow-lg">
-          {guestName ? `${guestName}, ` : ""}{weddingData.hero.title}
+          {weddingData.hero.title}
         </h1>
         <div className="w-32 h-px bg-gradient-to-r from-transparent via-white to-transparent mx-auto my-6"></div>
         <h2 className="text-2xl md:text-3xl font-script text-white mb-8 tracking-wider drop-shadow-lg">{weddingData.hero.coupleNames}</h2>
@@ -392,7 +415,7 @@ function StorySection() {
                   
       
                   <h3 className="text-lg font-bold text-white mb-1">{step.title}</h3>
-                  <div className="badge badge-primary badge-sm mb-3">{step.date}</div>
+                  {/* <div className="badge badge-primary badge-sm mb-3">{step.date}</div> */}
                   
       
                   <p className="text-sm text-white leading-relaxed">{step.description}</p>
@@ -411,7 +434,7 @@ function StorySection() {
           <p className="text-sm text-white/90 italic">
             "Cinta sejati tidak pernah berakhir. Cinta yang berakhir bukanlah cinta sejati."
           </p>
-          <p className="text-xs text-primary mt-2 font-medium">- Andi & Sari</p>
+          <p className="text-xs text-primary mt-2 font-medium">- Bagas & Melani</p>
         </motion.div>
       </div>
     </section>
