@@ -3,7 +3,7 @@ import index from "./index.html";
 import { serverApi } from "./lib/api";
 
 const server = serve({
-  port: 2440,
+  port: process.env.PORT || 3000,
   fetch(req) {
     const url = new URL(req.url).pathname;
     const file = Bun.file(`./public/${url}`);
